@@ -1,0 +1,323 @@
+////////// animation //////////
+
+// mouse
+.mouse {
+    background: black;
+    border-radius: 50%;
+    position: fixed;
+    z-index: 1001;
+    pointer-events: none;
+    transition: transform 200ms ease-in-out, opacity 200ms ease-in-out;
+}
+
+
+// grayscale
+.grayscale {
+    filter: grayscale(1);
+    transition: .3s;
+    transform: scale(.9);
+
+    &:hover {
+        filter: grayscale(0);
+        transition: .3s;
+    }
+}
+
+// service hover
+.service_item:hover {
+    transform: scale(1.1);
+}
+
+
+// icon hover
+.i_hover {
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+
+    &:hover {
+        transform: translateY(-0.5rem);
+    }
+}
+
+
+// border
+.border_animation {
+    position: relative;
+    overflow: hidden;
+
+    &:before,
+    &:after,
+    a:before,
+    a:after {
+        content: '';
+        position: absolute;
+        background-color: #fff;
+    }
+
+    &:before {
+        bottom: 0;
+        left: -200px;
+        width: 100px;
+        height: 2px;
+    }
+
+    &:after {
+        bottom: -100px;
+        right: 0;
+        width: 2px;
+        height: 100px;
+    }
+
+    a:before {
+        top: 0;
+        right: -200px;
+        width: 100px;
+        height: 2px;
+    }
+
+    a:after {
+        top: -100px;
+        left: 0;
+        width: 2px;
+        height: 100px;
+    }
+
+    &:hover:before {
+        animation: leftAnim 1.2s linear 0s infinite;
+    }
+
+    &:hover:after {
+        animation: bottomAnim 1.2s linear .75s infinite;
+    }
+
+    a:hover:before {
+        animation: rightAnim 1.2s linear 0s infinite;
+    }
+
+    a:hover:after {
+        animation: topAnim 1.2s linear .75s infinite;
+    }
+}
+
+@keyframes topAnim {
+    0% {
+        top: -180px;
+    }
+
+    100% {
+        top: 180px;
+    }
+}
+
+@keyframes bottomAnim {
+    0% {
+        bottom: -180px;
+    }
+
+    100% {
+        bottom: 180px;
+    }
+}
+
+@keyframes rightAnim {
+    0% {
+        right: -300px;
+    }
+
+    100% {
+        right: 300px;
+    }
+}
+
+@keyframes leftAnim {
+    0% {
+        left: -300px;
+    }
+
+    100% {
+        left: 300px;
+    }
+}
+
+
+///// toggle_btn /////
+.toggle_btn {
+    display: none;
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    width: 60px;
+    height: 30px;
+    transform: translate(0, 0);
+    transition: all .5s;
+    cursor: pointer;
+    z-index: 3;
+
+    span {
+        display: block;
+        position: absolute;
+        right: 0;
+        width: 30px;
+        height: 2px;
+        background-color: $color_main;
+        transition: all .5s;
+
+        &:nth-child(1) {
+            top: 5px;
+            width: 60px;
+            animation: equalizer01 7000ms infinite;
+        }
+
+        &:nth-child(2) {
+            top: 15px;
+            width: 30px;
+            animation: equalizer02 5000ms infinite;
+            animation-delay: 0.33s;
+        }
+
+        &:nth-child(3) {
+            top: 25px;
+            width: 20px;
+            animation: equalizer02 5000ms infinite;
+        }
+    }
+}
+
+.open .toggle_btn {
+    right: 330px;
+
+    span {
+        background-color: $color_main;
+        width: 30px;
+
+        &:nth-child(1) {
+            transform: translate(0, 10px) rotate(-45deg);
+            animation: unset;
+        }
+
+        &:nth-child(2) {
+            opacity: 0;
+            animation: unset;
+        }
+
+        &:nth-child(3) {
+            transform: translate(0, -10px) rotate(45deg);
+            animation: unset;
+        }
+    }
+}
+
+///// mask /////
+.gnav_mask {
+    display: none;
+}
+
+.open .gnav_mask {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: #999;
+    opacity: .8;
+    z-index: 2;
+    cursor: pointer;
+    transition: all .5s;
+}
+
+@keyframes equalizer01 {
+    0% {
+        width: 70%;
+    }
+
+    10% {
+        width: 50%;
+    }
+
+    20% {
+        width: 100%;
+    }
+
+    30% {
+        width: 10%;
+    }
+
+    40% {
+        width: 50%;
+    }
+
+    50% {
+        width: 70%;
+    }
+
+    60% {
+        width: 50%;
+    }
+
+    70% {
+        width: 10%;
+    }
+
+    80% {
+        width: 100%;
+    }
+
+    90% {
+        width: 10%;
+    }
+
+    100% {
+        width: 70%;
+    }
+}
+
+@keyframes equalizer02 {
+    0% {
+        width: 30%;
+    }
+
+    10% {
+        width: 20%;
+    }
+
+    20% {
+        width: 40%;
+    }
+
+    30% {
+        width: 10%;
+    }
+
+    40% {
+        width: 20%;
+    }
+
+    50% {
+        width: 30%;
+    }
+
+    60% {
+        width: 20%;
+    }
+
+    70% {
+        width: 10%;
+    }
+
+    80% {
+        width: 40%;
+    }
+
+    90% {
+        width: 10%;
+    }
+
+    100% {
+        width: 30%;
+    }
+}
+
+
+
+///// border animation ここまで /////

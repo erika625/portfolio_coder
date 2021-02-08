@@ -1,0 +1,139 @@
+@media screen and (max-width: 896px) {
+    header {
+        .header_logo {
+            font-size: 25px;
+        }
+        .gnav {
+            display: block;
+            position: fixed;
+            top: 0;
+            right: -250px;
+            bottom: 0;
+            width: 250px;
+            background: #ffffff;
+            overflow-x: hidden;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+            transition: .5s;
+            z-index: 3;
+
+            .gnav_list {
+                flex-direction: column;
+                margin-top: 50px;
+                .gnav_item {
+                    margin: 20px;
+                    padding-bottom: 10px;
+                    padding-left: 10px;
+                    font-size: 18px;
+                    letter-spacing: .3rem;
+                    border-bottom: 1px solid;
+                }
+            }
+        }
+    }
+
+    .toggle_btn {
+        display: block;
+    }
+
+
+    .main_visual h1 {
+        margin: 0 20%;
+    }
+
+    .product_list {
+        justify-content: space-around;
+
+        .product_item {
+            width: 50%;
+        }
+    }
+
+    .contents:nth-child(2) {
+        flex-direction: column;
+    }
+
+    .profile_icon {
+        margin-left: 0;
+    }
+
+    .profile_txt {
+        margin: 0 auto;
+        padding: 0 50px;
+    }
+    .contact_form {
+        .caution {
+            display: block;
+        }
+
+        .btn_contact {
+            width: 100%;
+        }
+    }
+
+    .follow_me {
+        padding-bottom: 50px;
+
+        .sns_list {
+            font-size: 12px;
+
+            a {
+                margin: 5px;
+                width: 45%;
+            }
+
+            i {
+                width: 100%;
+            }
+        }
+    }
+
+    footer p {
+        font-size: 10px;
+        letter-spacing: 0.1rem;
+    }
+
+    // animation
+    .open .toggle_btn {
+        right: 260px;
+    }
+    .open .gnav {
+        right: 0;
+    }
+    .grayscale {
+        filter: none;
+    }
+    
+    .border_animation {
+
+        &:before,
+        &:after,
+        a:before,
+        a:after {
+            background-color: transparent;
+        }
+    }
+
+
+}
+
+@media screen and (max-width: 480px) {
+
+    header .header_logo {
+        font-size: 18px;
+    }
+
+    .main_visual h1 {
+        font-size: 30px;
+        margin: 0 10%;
+    }
+
+    .product_list .product_item {
+        width: 100%;
+    }
+
+    footer p {
+        font-size: 8px;
+    }
+
+}
